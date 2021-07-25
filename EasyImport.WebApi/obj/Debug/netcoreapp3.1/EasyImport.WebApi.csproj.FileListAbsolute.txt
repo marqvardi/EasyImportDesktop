@@ -1,0 +1,172 @@
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Data\UserSeedData.json
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.exe
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.deps.json
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.runtimeconfig.json
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.runtimeconfig.dev.json
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.pdb
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.csprojAssemblyReference.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.AssemblyInfoInputs.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.AssemblyInfo.cs
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.csproj.CopyComplete
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\EasyImport.WebApi.StaticWebAssets.Manifest.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\EasyImport.WebApi.StaticWebAssets.xml
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.pdb
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.genruntimeconfig.cache
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\NWebsec.AspNetCore.Core.dll
+C:\Users\marqu\source\repos\EasyImport\EasyImport.WebApi\bin\Debug\netcoreapp3.1\NWebsec.AspNetCore.Middleware.dll
+C:\Users\marqu\source\repos\EasyImport\easyimport.webapi\obj\Debug\netcoreapp3.1\scopedcss\bundle\EasyImport.WebApi.styles.css
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Data\UserSeedData.json
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.exe
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.deps.json
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.runtimeconfig.json
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.runtimeconfig.dev.json
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\EasyImport.WebApi.pdb
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\NWebsec.AspNetCore.Core.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\NWebsec.AspNetCore.Middleware.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.AssemblyInfoInputs.cache
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.AssemblyInfo.cs
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.csproj.CoreCompileInputs.cache
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\EasyImport.WebApi.StaticWebAssets.Manifest.cache
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\EasyImport.WebApi.StaticWebAssets.xml
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\EasyImport.WebApi.styles.css
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.RazorTargetAssemblyInfo.cache
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.csproj.CopyComplete
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.dll
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.pdb
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.genruntimeconfig.cache
+C:\Easy Import EN\EasyImport\easyimport.WebApi\obj\Debug\netcoreapp3.1\EasyImport.WebApi.csproj.AssemblyReference.cache

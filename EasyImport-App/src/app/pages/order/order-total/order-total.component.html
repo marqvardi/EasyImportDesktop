@@ -1,0 +1,37 @@
+<div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+  Order brief
+</div>
+<div class="p-4">
+  <!-- <p class="font-italic mb-4">Taxes will be shown later</p> -->
+  <ul class="li-unstyled mb-4" *ngIf="basketTotal$ | async as totals">
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Total of items</strong>
+      <strong>{{ totals.totalItems }} </strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">CBM</strong>
+      <strong>{{ totals.cbm | number: "1.2-2" }} m3</strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Gross weight</strong>
+      <strong>{{ totals.totalGrossKgs | number: "1.2-2" }} Kgs</strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Total in taxes</strong>
+      <strong>{{ totals.taxes | currency }}</strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Total for products only</strong>
+      <strong>{{ totals.total | currency }}</strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Total (taxes + goods)</strong>
+      <strong>{{ totals.total + totals.taxes | currency }}</strong>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,78 @@
+<div class="logo">
+  <a routerLink="/order" class="simple-text logo-mini">
+    <div class="logo-img">
+      <img src="./assets/img/white-spade-sm.png" />
+    </div>
+  </a>
+  <a routerLink="/order" class="simple-text logo-normal"> Easy Company </a>
+</div>
+
+<!-- English -->
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li>
+      <a
+        routerLink="/order"
+        routerLinkActive="active"
+        *appHasRole="['Admin', 'SimpleUser']"
+      >
+        <i class="fa fa-plus-circle"></i>Order
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/payments"
+        routerLinkActive="active"
+        *appHasRole="['Admin', 'SimpleUser']"
+      >
+        <i class="fa fa-money"></i>Payments
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/product"
+        routerLinkActive="active"
+        *appHasRole="['Admin', 'SimpleUser']"
+      >
+        <i class="fa fa-book"></i>Product
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/category"
+        routerLinkActive="active"
+        *appHasRole="['Admin', 'SimpleUser']"
+      >
+        <i class="fa fa-map"></i>Category
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/ncm"
+        routerLinkActive="active"
+        *appHasRole="['Admin', 'SimpleUser']"
+      >
+        <i class="fa fa-bolt"></i>NCM
+      </a>
+    </li>
+
+    <li>
+      <a
+        routerLink="/supplier"
+        routerLinkActive="active"
+        *appHasRole="['Admin', 'SimpleUser']"
+      >
+        <i class="fa fa-paste"></i>Supplier
+      </a>
+    </li>
+    <li>
+      <a routerLink="/user" routerLinkActive="active" *appHasRole="['Admin']">
+        <i class="fa fa-id-badge"></i>User
+      </a>
+    </li>
+  </ul>
+</div>

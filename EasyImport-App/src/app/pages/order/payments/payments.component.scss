@@ -1,0 +1,98 @@
+p {
+  font-family: Lato;
+}
+
+.needPayment {
+  background-color: rgb(254, 82, 42);
+  padding: 2px;
+}
+
+.paidAlready {
+  background-color: rgb(2, 148, 84);
+}
+
+.whiteText {
+  color: white;
+}
+
+.redPill {
+  background-color: lightcoral;
+  border: none;
+  color: black;
+  min-width: 95px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.amberPill {
+  background-color: orange;
+  min-width: 95px;
+  border: none;
+  color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.greenPill {
+  background-color: lightgreen;
+  min-width: 95px;
+  border: none;
+  color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.greyPill {
+  background-color: lightgrey;
+  min-width: 95px;
+  border: none;
+  color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.edit {
+  background-color: #e14eca;
+  float: left;
+}
+
+.save {
+  background-color: green;
+  float: left;
+}
+
+table tr button {
+  opacity: 0;
+  float: right;
+}
+
+table tr:hover button {
+  opacity: 1;
+}
+
+select {
+  /* background-color: #1e1e2f; */
+  font-size: large;
+  height: 45px;
+}
+
+select > option {
+  /* background-color: #1e1e2f; */
+  font-size: large;
+}

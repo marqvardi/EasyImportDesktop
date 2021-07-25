@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "../node_modules/ngx-toastr/toastr.css";
+@import "../src/assets/scss/black-dashboard.scss";
+@import "../src/assets/css/nucleo-icons.css";
+
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+
+.hovering:hover {
+  box-shadow: 0 0 3px #515151;
+}
+
+.tab-panel {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.nav-tabs > li.open,
+.product-tabset > .nav-tabs > li:hover {
+  border-bottom: 4px solid purple;
+}
+
+.product-tabset > .nav-tabs > li.open > a,
+.product-tabset > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: lightsalmon;
+}
+
+.product-tabset > .nav-tabs > li.open > a > i,
+.product-tabset > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+
+.product-tabset > .nav-tabs > li.open .dropdown-menu,
+.product-tabset > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+
+.product-tabset > .nav-tabs > li.active {
+  border-bottom: 8px solid purple;
+  position: relative;
+}
+
+.product-tabset > .nav-tabs > li.active > a {
+  border: 1px solid purple !important;
+  color: lightsalmon;
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+.product-tabset > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+
+.product-tabset > .tab-content {
+  margin-top: -3px;
+  border-radius: 10px;
+  // background-color: #303030;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.pag-teste > li {
+  background-color: #344675;
+}

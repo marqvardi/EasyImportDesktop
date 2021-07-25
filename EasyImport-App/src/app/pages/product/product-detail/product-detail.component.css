@@ -1,0 +1,36 @@
+.img-thumbnail {
+  margin: 25px;
+  border-radius: 20px;
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+}
+
+.card-img-top.img-thumbnail {
+  height: 300px;
+}
+
+.img__container {
+  height: 300px;
+}
+
+img {
+  margin-top: 0;
+  max-height: 300px;
+}
+
+input {
+  font-size: medium;
+}
+
+select {
+  /* background-color: #1e1e2f; */
+  font-size: medium;
+}
+
+select > option {
+  /* background-color: #1e1e2f; */
+  font-size: medium;
+}

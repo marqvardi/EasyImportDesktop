@@ -1,0 +1,280 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-5">
+      <div class="d-flex justify-content-end col-12">
+        <button
+          class="btn btn-primary float-right"
+          tooltip="Criar novo fornecedor"
+          (click)="create(template)"
+        >
+          <i class="fa fa-plus-circle">&nbsp;</i>
+          New supplier
+        </button>
+      </div>
+
+      <div class="col-12 mt-3">
+        <div class="form-inline">
+          <select
+            class="col-md-3 form-control"
+            (change)="onSortSelected($event.target.value)"
+          >
+            <option *ngFor="let sort of sortOptions" [value]="sort.value">
+              {{ sort.name }}
+            </option>
+          </select>
+
+          <input
+            (keyup.enter)="onSearch()"
+            #search
+            class="form-control mr-2 ml-auto col-md-3 my-3"
+            placeholder="Search"
+            type="text"
+          />
+          <button class="btn btn-outline-primary my-2" (click)="onSearch()">
+            Search
+          </button>
+          <button class="btn btn-outline-success ml-2 my-2" (click)="onReset()">
+            Reset
+          </button>
+        </div>
+
+        <div class="d-flex justify-content-end my-3">
+          <app-paging-header
+            [totalCount]="totalCount"
+            [pageSize]="this.supplierParams.pageSize"
+            [pageNumber]="this.supplierParams.pageIndex"
+          ></app-paging-header>
+        </div>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <!-- <th>
+                Id
+              </th> -->
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Email</th>
+
+              <th colspan="2">Options</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let supplier of suppliers">
+            <tr>
+              <!-- <td>
+                {{ supplier.id }}
+              </td> -->
+              <td>
+                {{ supplier.companyName }}
+              </td>
+              <td>
+                {{ supplier.contact }}
+              </td>
+              <td>
+                {{ supplier.email }}
+              </td>
+
+              <td>
+                <div class="btn-group">
+                  <button
+                    class="btn btn-sm btn-info mr-2"
+                    tooltip="Edit"
+                    (click)="edit(supplier, template)"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-danger"
+                    tooltip="Delete"
+                    (click)="delete(supplier, confirm)"
+                  >
+                    <i class="fa fa-eraser"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+          <app-pager
+            [totalCount]="this.totalCount"
+            [pageSize]="this.supplierParams.pageSize"
+            (pageChanged)="onPageChange($event)"
+          ></app-pager>
+
+          <!-- <pagination [boundaryLinks]="true" [totalItems]="this.totalCount" (pageChanged)="onPageChange($event)"
+                [itemsPerPage]="this.categoryParams.pageSize"
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"> 
+          </pagination> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" *ngIf="this.saveMode == 'post'">
+      New supplier
+    </h4>
+    <h4 class="modal-title pull-left" *ngIf="this.saveMode == 'put'">
+      Edit supplier
+    </h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="bsModalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-aqua">
+    <div class="container">
+      <form [formGroup]="registerForm">
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> Company</label>
+            <input
+              class="form-control"
+              placeholder="Supplier name"
+              type="text"
+              name="companyName"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('companyName').touched &&
+                  registerForm.get('companyName').errors
+              }"
+              formControlName="companyName"
+            />
+            <div
+              *ngIf="registerForm.get('companyName').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter the name of the company
+            </div>
+            <div
+              *ngIf="registerForm.get('companyName').hasError('minlength')"
+              class="invalid-feedback"
+            >
+              Minimum of 8 characters
+            </div>
+            <div
+              *ngIf="registerForm.get('companyName').hasError('exists')"
+              class="invalid-feedback"
+            >
+              Company name is already taken
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> Contact </label>
+            <input
+              class="form-control"
+              formControlName="contact"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('contact').touched &&
+                  registerForm.get('contact').errors
+              }"
+            />
+            <div
+              *ngIf="registerForm.get('contact').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter a contact name
+            </div>
+            <div
+              *ngIf="registerForm.get('contact').hasError('minlength')"
+              class="invalid-feedback"
+            >
+              Minimum of 5 characters
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> Email </label>
+            <input
+              class="form-control"
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('email').touched &&
+                  registerForm.get('email').errors
+              }"
+            />
+            <div
+              *ngIf="registerForm.get('email').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter an email
+            </div>
+            <div
+              *ngIf="registerForm.get('email').hasError('email')"
+              class="invalid-feedback"
+            >
+              Enter a valid email
+            </div>
+          </div>
+        </div>
+      </form>
+      <button
+        class="btn btn-primary mt-3 float-right"
+        [disabled]="!registerForm.valid || !registerForm.dirty"
+        type="submit"
+        (click)="save(template)"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<div
+  bsModal
+  #confirm="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-sizes-name1"
+>
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Delete supplier</h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="confirm.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ bodyDeleteSupplier }}</p>
+      </div>
+      <div class="modal-footer btn-group d-flex">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="confirm.hide()"
+        >
+          CANCEL
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="confirmDelete(confirm)"
+        >
+          DELETE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

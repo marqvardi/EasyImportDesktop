@@ -1,0 +1,22 @@
+<div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+  Order Summary elite
+</div>
+<div class="p-4">
+  <ul class="li-unstyled mb-4">
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Gross weight</strong>
+      <strong>{{ totalKgs | number: "1.2-2" }}</strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Taxes</strong>
+      <strong>{{ totalTaxes | currency }}</strong>
+    </li>
+
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Total</strong>
+      <strong>{{ totalOrder | currency }}</strong>
+    </li>
+  </ul>
+</div>

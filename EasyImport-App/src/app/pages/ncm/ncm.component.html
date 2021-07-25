@@ -1,0 +1,370 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-5">
+      <div class="d-flex justify-content-end col-12">
+        <button
+          class="btn btn-primary float-right"
+          tooltip="Create a new NCM"
+          (click)="create(template)"
+        >
+          <i class="fa fa-plus-circle">&nbsp;</i>
+          New NCM
+        </button>
+      </div>
+
+      <div class="col-12 mt-3">
+        <div class="form-inline">
+          <select
+            class="col-md-3 form-control"
+            (change)="onSortSelected($event.target.value)"
+          >
+            <option *ngFor="let sort of sortOptions" [value]="sort.value">
+              {{ sort.name }}
+            </option>
+          </select>
+
+          <input
+            (keyup.enter)="onSearch()"
+            #search
+            class="form-control mr-2 ml-auto col-md-3 my-3"
+            placeholder="Search"
+            type="text"
+          />
+          <button class="btn btn-outline-primary my-2" (click)="onSearch()">
+            Search
+          </button>
+          <button class="btn btn-outline-success ml-2 my-2" (click)="onReset()">
+            Reset
+          </button>
+        </div>
+
+        <div class="d-flex justify-content-end my-3">
+          <app-paging-header
+            [totalCount]="totalCount"
+            [pageSize]="this.ncmParams.pageSize"
+            [pageNumber]="this.ncmParams.pageIndex"
+          ></app-paging-header>
+        </div>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <!-- <th>
+                Id
+              </th> -->
+              <th>NCM</th>
+              <th>II</th>
+              <th>IPI</th>
+              <th>PIS</th>
+              <th>COFINS</th>
+              <th colspan="2">Options</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let ncm of ncms">
+            <tr>
+              <!-- <td>
+                {{ ncm.id }}
+              </td> -->
+              <td>
+                {{ ncm.ncmCode | mask: "0000.00.00" }}
+              </td>
+              <td>
+                {{ ncm.ii | percent: "1.2" }}
+              </td>
+              <td>
+                {{ ncm.ipi | percent: "1.2" }}
+              </td>
+              <td>
+                {{ ncm.pis | percent: "1.2" }}
+              </td>
+              <td>
+                {{ ncm.cofins | percent: "1.2" }}
+              </td>
+
+              <td>
+                <div class="btn-group">
+                  <button
+                    class="btn btn-sm btn-info mr-2"
+                    tooltip="Edit"
+                    (click)="edit(ncm, template)"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-danger"
+                    tooltip="Delete"
+                    (click)="delete(ncm, confirm)"
+                  >
+                    <i class="fa fa-eraser"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+          <app-pager
+            [totalCount]="this.totalCount"
+            [pageSize]="this.ncmParams.pageSize"
+            (pageChanged)="onPageChange($event)"
+          ></app-pager>
+
+          <!-- <pagination [boundaryLinks]="true" [totalItems]="this.totalCount" (pageChanged)="onPageChange($event)"
+                [itemsPerPage]="this.categoryParams.pageSize"
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"> 
+          </pagination> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" *ngIf="this.saveMode == 'post'">
+      New NCM
+    </h4>
+    <h4 class="modal-title pull-left" *ngIf="this.saveMode == 'put'">
+      Edit NCM
+    </h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="bsModalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-aqua">
+    <div class="container">
+      <form [formGroup]="registerForm">
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label>NCM code (HS code) </label>
+            <input
+              class="form-control"
+              placeholder="XXXX.XX.XX"
+              type="text"
+              mask="0000.00.00"
+              name="ncmCode"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('ncmCode').touched &&
+                  registerForm.get('ncmCode').errors
+              }"
+              formControlName="ncmCode"
+            />
+            <div
+              *ngIf="registerForm.get('ncmCode').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter a new NCM
+            </div>
+            <div
+              *ngIf="registerForm.get('ncmCode').hasError('minlength')"
+              class="invalid-feedback"
+            >
+              NCM needs at 8 digits
+            </div>
+            <div
+              *ngIf="registerForm.get('ncmCode').hasError('exists')"
+              class="invalid-feedback"
+            >
+              NCM is already taken
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> II </label>
+            <input
+              class="form-control"
+              placeholder="%"
+              formControlName="ii"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('ii').touched &&
+                  registerForm.get('ii').errors
+              }"
+            />
+            <div
+              *ngIf="registerForm.get('ii').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter a value
+            </div>
+            <div
+              *ngIf="registerForm.get('ii').hasError('min')"
+              class="invalid-feedback"
+            >
+              Minimum is 0 (zero)
+            </div>
+            <div
+              *ngIf="registerForm.get('ii').hasError('max')"
+              class="invalid-feedback"
+            >
+              Maximum value is 100
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> IPI </label>
+            <input
+              class="form-control"
+              placeholder="%"
+              formControlName="ipi"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('ipi').touched &&
+                  registerForm.get('ipi').errors
+              }"
+            />
+            <div
+              *ngIf="registerForm.get('ipi').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter a value
+            </div>
+            <div
+              *ngIf="registerForm.get('ipi').hasError('min')"
+              class="invalid-feedback"
+            >
+              Minimum value is 0 (zero)
+            </div>
+            <div
+              *ngIf="registerForm.get('ipi').hasError('max')"
+              class="invalid-feedback"
+            >
+              Maximum value is 100
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> PIS </label>
+            <input
+              class="form-control"
+              placeholder="%"
+              formControlName="pis"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('pis').touched &&
+                  registerForm.get('pis').errors
+              }"
+            />
+            <div
+              *ngIf="registerForm.get('pis').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter a value
+            </div>
+            <div
+              *ngIf="registerForm.get('pis').hasError('min')"
+              class="invalid-feedback"
+            >
+              Minimum value is 0 (zero)
+            </div>
+            <div
+              *ngIf="registerForm.get('pis').hasError('max')"
+              class="invalid-feedback"
+            >
+              Maximum value is 100
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 px-md-1">
+          <div class="form-group">
+            <label> COFINS </label>
+            <input
+              class="form-control"
+              placeholder="%"
+              formControlName="cofins"
+              [ngClass]="{
+                'is-invalid':
+                  registerForm.get('cofins').touched &&
+                  registerForm.get('cofins').errors
+              }"
+            />
+            <div
+              *ngIf="registerForm.get('cofins').hasError('required')"
+              class="invalid-feedback"
+            >
+              Enter a value
+            </div>
+            <div
+              *ngIf="registerForm.get('cofins').hasError('min')"
+              class="invalid-feedback"
+            >
+              Minimum value is 0 (zero)
+            </div>
+            <div
+              *ngIf="registerForm.get('cofins').hasError('max')"
+              class="invalid-feedback"
+            >
+              Maximum value is 100
+            </div>
+          </div>
+        </div>
+      </form>
+      <button
+        class="btn btn-primary mt-3 float-right"
+        [disabled]="!registerForm.valid || !registerForm.dirty"
+        type="submit"
+        (click)="save(template)"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<div
+  bsModal
+  #confirm="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-sizes-name1"
+>
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Delete category</h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="confirm.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ bodyDeleteNcm }}</p>
+      </div>
+      <div class="modal-footer btn-group d-flex">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="confirm.hide()"
+        >
+          CANCEL
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="confirmDelete(confirm)"
+        >
+          DELETE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

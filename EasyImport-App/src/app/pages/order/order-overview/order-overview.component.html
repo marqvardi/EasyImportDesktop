@@ -1,0 +1,480 @@
+<div class="content">
+  <div class="pb-5">
+    <div *ngIf="orderOverview && supplierList && orderStatusList">
+      <div class="row">
+        <div class="col-lg-10 mb-2">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Product</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Description</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Price</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Quantity</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Total</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Taxes</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Per carton</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase"># of cartons</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">CBM</div>
+                  </th>
+
+                  <th
+                    class="border-0 bg-light"
+                    scope="col"
+                    *ngIf="orderOverview.orderStatusId != 4"
+                  >
+                    <div class="p-2 px-3 text-uppercase">Remove</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of orderOverview.orderItems">
+                  <th scope="row">
+                    <div class="p-2 hovering">
+                      <a
+                        [routerLink]="['/product', item.productId, 'edit']"
+                        target="_blank"
+                      >
+                        <img
+                          *ngIf="item.pictureUrl"
+                          src="{{ item.pictureUrl }}"
+                          alt=""
+                          style="max-height: 80px"
+                        />
+
+                        <img
+                          *ngIf="item.pictureUrl == ''"
+                          src=" {{ defaultImage }}"
+                          style="max-height: 100px"
+                          alt=""
+                        />
+
+                        <div class="ml-3 d-inline-block align-middle">
+                          <h5 class="mb-0">
+                            <a class="text-dark"
+                              >Code: {{ item.productCode }}
+                            </a>
+                          </h5>
+                          <span
+                            class="
+                              text-muted
+                              font-weight-normal font-italic
+                              d-block
+                            "
+                          >
+                            Supplier: {{ item.supplierName }}</span
+                          >
+                        </div>
+                      </a>
+                    </div>
+                  </th>
+
+                  <td class="align-middle" style="max-width: 300px">
+                    {{ item.description }}
+                  </td>
+
+                  <td>
+                    <!-- <strong>
+                      {{ item.price | currency: "USD":true:"1.2-4" }}
+                    </strong> -->
+
+                    <div class="d-flex flex-column col-9">
+                      <input
+                        style="width: 100px"
+                        type="number"
+                        min="1"
+                        class="form-control mx-1"
+                        value="{{ item.price | number: '1.2-4' }}"
+                        aria-describedby="button-addon2"
+                        #price
+                        name="price"
+                      />
+                      <button
+                        *ngIf="orderOverview.orderStatusId != 4"
+                        style="width: 100px"
+                        class="btn btn-sm btn-primary mt-2"
+                        type="button"
+                        id="button-addon2"
+                        (click)="changePrice(item, price.value)"
+                      >
+                        Modify
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex flex-column col-9">
+                      <input
+                        type="number"
+                        style="width: 100px"
+                        min="1"
+                        class="form-control mx-1"
+                        value="{{ item.quantity }}"
+                        aria-describedby="button-addon2"
+                        #quantity
+                        name="quantity"
+                      />
+                      <button
+                        style="width: 100px"
+                        *ngIf="orderOverview.orderStatusId != 4"
+                        class="btn btn-sm btn-primary mt-2"
+                        type="button"
+                        id="button-addon2"
+                        (click)="changeQuantity(item, quantity.value)"
+                      >
+                        Modify
+                      </button>
+                    </div>
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.price * item.quantity | currency }}</strong
+                    >
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{
+                        calculateTotalTaxesForSingleItem(item) | currency
+                      }}</strong
+                    >
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.qtyPerCarton }}
+                    </strong>
+                  </td>
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.quantity / item.qtyPerCarton | number: "1.2-2" }}
+                    </strong>
+                  </td>
+                  <td class="align-middle">
+                    <strong>
+                      {{
+                        (item.cartonDeepness *
+                          item.cartonHeight *
+                          item.cartonWidth *
+                          (item.quantity / item.qtyPerCarton)) /
+                          1000000 | number: "1.2-2"
+                      }}
+                    </strong>
+                  </td>
+                  <td
+                    class="align-middle text-center"
+                    *ngIf="orderOverview.orderStatusId != 4"
+                  >
+                    <a
+                      class="text-danger btn btn-sm"
+                      (click)="remove(item, orderOverview)"
+                    >
+                      <i class="fa fa-trash" style="font-size: 2em"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-2 mb-5" *ngIf="orderOverview.orderStatusId != 4">
+          <app-addItemToOrder
+            [orderOverview]="orderOverview"
+            [form]="orderForm"
+            (reloadOrder)="ngOnInit()"
+          ></app-addItemToOrder>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-5">
+          <div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+            Order details
+          </div>
+          <form [formGroup]="orderForm" (ngSubmit)="save()">
+            <div class="form-group py-2">
+              <label for="invoiceNumber">Invoice number </label>
+              <input
+                [ngModel]="orderOverview.invoiceNumber"
+                id="invoiceNumber"
+                type="text"
+                value="{{ orderOverview.invoiceNumber }}"
+                formControlName="invoiceNumber"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="referenceNumber">Reference</label>
+              <input
+                [value]="orderOverview.referenceNumber"
+                [ngModel]="orderOverview.referenceNumber"
+                id="referenceNumber"
+                type="text"
+                formControlName="referenceNumber"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('referenceNumber')?.errors &&
+                    orderForm.get('referenceNumber')?.touched
+                }"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('referenceNumber')?.hasError('required') &&
+                  orderForm.get('referenceNumber')?.touched
+                "
+              >
+                Enter a reference
+              </div>
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('referenceNumber')?.hasError('minlength') &&
+                  orderForm.get('referenceNumber')?.touched
+                "
+              >
+                Minimum of 1 character
+              </div>
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('referenceNumber')?.hasError('maxlength') &&
+                  orderForm.get('referenceNumber')?.touched
+                "
+              >
+                Maximum of 6 characters
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="supplier">Supplier</label>
+              <select
+                id="supplier"
+                formControlName="supplierId"
+                class="form-control py-2"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('supplierId')?.errors &&
+                    orderForm.get('supplierId')?.touched
+                }"
+              >
+                <option [ngValue]="null">Choose a supplier</option>
+                <option
+                  *ngFor="let supplier of supplierList"
+                  [ngValue]="supplier.id"
+                >
+                  {{ supplier.companyName | titlecase }}
+                </option>
+              </select>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('supplierId')?.hasError('required') &&
+                  orderForm.get('supplierId')?.touched
+                "
+              >
+                Supplier is mandatory
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="orderStatus">Status</label>
+              <select
+                (change)="onChangeOrderStatus($event)"
+                id="orderStatus"
+                formControlName="orderStatusId"
+                class="form-control py-2"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('orderStatusId')?.errors &&
+                    orderForm.get('orderStatusId')?.touched
+                }"
+              >
+                <option [ngValue]="null">Choose a status</option>
+                <option
+                  *ngFor="let status of orderStatusList"
+                  [ngValue]="status.id"
+                >
+                  {{ status.status | titlecase }}
+                </option>
+              </select>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('orderStatusId')?.hasError('required') &&
+                  orderForm.get('orderStatusId')?.touched
+                "
+              >
+                Status is mandatory
+              </div>
+            </div>
+
+            <!-- *appHasRole="['Admin', 'SoMarcas']" -->
+            <div class="form-group py-3" *appHasRole="['Admin']">
+              <label for="arrivalDate"
+                >Date created order (just admin can see that)</label
+              >
+              <input
+                id="orderCreate"
+                autocomplete="off"
+                [(ngModel)]="orderOverview.orderCreated"
+                value="{{ orderOverview.orderCreated | date: 'dd/MM/yyyy' }}"
+                type="text"
+                placeholder="select a date"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="bsConfig"
+                formControlName="orderCreated"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('orderCreated')?.errors &&
+                    orderForm.get('orderCreated')?.touched
+                }"
+              />
+            </div>
+
+            <div class="form-group py-3" *ngIf="arrivalDateSetTo">
+              <label for="arrivalDate">Arrival date</label>
+              <input
+                id="arrivalDate"
+                autocomplete="off"
+                [(ngModel)]="orderOverview.arrivalDate"
+                value="{{ orderOverview.arrivalDate | date: 'dd/MM/yyyy' }}"
+                type="text"
+                placeholder="select a date"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="bsConfig"
+                formControlName="arrivalDate"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('deliveryDate')?.errors &&
+                    orderForm.get('deliveryDate')?.touched
+                }"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('deliveryDate')?.hasError('required') &&
+                  orderForm.get('deliveryDate')?.touched
+                "
+              >
+                Choose a date
+              </div>
+            </div>
+
+            <div class="form-group py-3">
+              <label for="deliveryDate">ETA date</label>
+              <input
+                [minDate]="minDate"
+                id="deliveryDate"
+                [(ngModel)]="orderOverview.deliveryDate"
+                value="{{ orderOverview.deliveryDate | date: 'dd/MM/yyyy' }}"
+                type="text"
+                placeholder="select a date"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="bsConfig"
+                formControlName="deliveryDate"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('deliveryDate')?.errors &&
+                    orderForm.get('deliveryDate')?.touched
+                }"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('deliveryDate')?.hasError('required') &&
+                  orderForm.get('deliveryDate')?.touched
+                "
+              >
+                Choose a date
+              </div>
+            </div>
+
+            <button
+              class="btn btn-primary btn-block py-3"
+              type="submit"
+              [disabled]="!orderForm.valid || !orderForm.dirty"
+            >
+              Update order details
+            </button>
+          </form>
+        </div>
+
+        <div class="col-5">
+          <div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+            Order brief
+          </div>
+          <div class="p-4">
+            <ul class="li-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Total of items</strong>
+                <strong>{{ totalOfItems | number }}</strong>
+              </li>
+
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">CBM</strong>
+                <strong>{{ totalCbm | number: "1.2-2" }} m3</strong>
+              </li>
+
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Gross weight</strong>
+                <strong>{{ totalKgs | number: "1.2-2" }} Kgs</strong>
+              </li>
+
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Total in taxes</strong>
+                <strong>{{ totalTaxes | currency }}</strong>
+              </li>
+
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Total for products only </strong>
+                <strong>{{ totalOrder | currency }}</strong>
+              </li>
+
+              <li class="d-flex justify-content-between py-3 border-bottom">
+                <strong class="text-muted">Total (taxes + goods)</strong>
+                <strong>{{ totalOrder + totalTaxes | currency }}</strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

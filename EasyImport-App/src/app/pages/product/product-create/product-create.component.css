@@ -1,0 +1,28 @@
+.img-thumbnail {
+  margin: 25px;
+  border-radius: 20px;
+
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+}
+
+input {
+  font-size: medium;
+}
+
+select {
+  /* background-color: #1e1e2f; */
+  font-size: medium;
+}
+
+select > option {
+  /* background-color: #1e1e2f; */
+  font-size: medium;
+}
+
+textarea {
+  font-size: medium;
+}

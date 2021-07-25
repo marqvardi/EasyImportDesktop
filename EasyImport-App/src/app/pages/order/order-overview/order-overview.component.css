@@ -1,0 +1,13 @@
+select {
+  /* background-color: #1e1e2f; */
+  font-size: medium;
+}
+
+select > option {
+  /* background-color: #1e1e2f; */
+  font-size: medium;
+}
+
+input {
+  font-size: medium;
+}

@@ -1,0 +1,209 @@
+<div class="content mt-5 row col-md-12">
+  <div class="col-md-6">
+    <form [formGroup]="registerForm">
+      <div class="col-md-6 px-1">
+        <div class="form-group">
+          <label> First name </label>
+          <input
+            (keyup.enter)="save()"
+            type="text"
+            class="form-control"
+            style="color: black"
+            [ngClass]="{
+              'is-invalid':
+                registerForm.get('firstName').touched &&
+                registerForm.get('firstName').errors
+            }"
+            formControlName="firstName"
+            placeholder="First name here..."
+          />
+          <div
+            *ngIf="registerForm.get('firstName').hasError('required')"
+            class="invalid-feedback"
+          >
+            Enter a name
+          </div>
+          <div
+            *ngIf="registerForm.get('firstName').hasError('minlength')"
+            class="invalid-feedback"
+          >
+            Minimum of 4 characters
+          </div>
+          <div
+            *ngIf="registerForm.get('firstName').hasError('maxlength')"
+            class="invalid-feedback"
+          >
+            Maximum of 15 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 px-md-1">
+        <div class="form-group">
+          <label> Last name </label>
+          <input
+            (keyup.enter)="save()"
+            type="text"
+            class="form-control"
+            style="color: black"
+            [ngClass]="{
+              'is-invalid':
+                registerForm.get('lastName').touched &&
+                registerForm.get('lastName').errors
+            }"
+            formControlName="lastName"
+            placeholder="Last name here..."
+          />
+          <div
+            *ngIf="registerForm.get('lastName').hasError('required')"
+            class="invalid-feedback"
+          >
+            Enter a last name
+          </div>
+          <div
+            *ngIf="registerForm.get('lastName').hasError('minlength')"
+            class="invalid-feedback"
+          >
+            Minimum of 4 characters
+          </div>
+          <div
+            *ngIf="registerForm.get('lastName').hasError('maxlength')"
+            class="invalid-feedback"
+          >
+            Maximum of 15 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 px-md-1">
+        <div class="form-group">
+          <label> Email </label>
+          <input
+            (keyup.enter)="save()"
+            type="text"
+            class="form-control"
+            style="color: black"
+            [ngClass]="{
+              'is-invalid':
+                registerForm.get('email').touched &&
+                registerForm.get('email').errors
+            }"
+            formControlName="email"
+            placeholder="Enter email..."
+          />
+          <div
+            *ngIf="registerForm.get('email').hasError('required')"
+            class="invalid-feedback"
+          >
+            Enter an email
+          </div>
+          <div
+            *ngIf="registerForm.get('email').hasError('email')"
+            class="invalid-feedback"
+          >
+            Enter a valid email
+          </div>
+        </div>
+      </div>
+    </form>
+    <button
+      class="btn btn-primary mt-3 float-left"
+      [disabled]="!registerForm.valid || !registerForm.dirty"
+      type="submit"
+      (keyup.enter)="save()"
+      (click)="save()"
+    >
+      Save
+    </button>
+  </div>
+
+  <div class="col-md-5">
+    <div class="card">
+      <img
+        class="card-img-top img-thumbnail"
+        src="{{ user.imageUrl ? user.imageUrl : 'assets/img/anime3.png' }}"
+        alt=""
+      />
+
+      <div class="row mt-3">
+        <div class="col-md-3">
+          <!-- <h3>Add or change photo</h3> -->
+
+          <div
+            ng2FileDrop
+            [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+            (fileOver)="fileOverBase($event)"
+            [uploader]="uploader"
+            class="card bg-faded p-3 text-center my-drop-zone"
+          >
+            <i class="fa fa-upload fa-3x"></i>
+            Drop a picture here
+          </div>
+
+          Upload file
+          <input type="file" ng2FileSelect [uploader]="uploader" />
+        </div>
+
+        <div class="col-md-9" style="margin-bottom: 40px">
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="50%">Name</th>
+                <th>Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of uploader.queue">
+                <td>
+                  <strong>{{ item?.file?.name }}</strong>
+                </td>
+                <td *ngIf="uploader.options.isHTML5" nowrap>
+                  {{ item?.file?.size / 1024 / 1024 | number: ".2" }}
+                  MB
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div>
+            <div>
+              Queue progress:
+              <div class="progress mb-4">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  [ngStyle]="{ width: uploader.progress + '%' }"
+                ></div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-success btn-s"
+              (click)="uploader.uploadAll()"
+              [disabled]="!uploader.getNotUploadedItems().length"
+            >
+              <span class="fa fa-upload"></span> Upload
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning btn-s"
+              (click)="uploader.cancelAll()"
+              [disabled]="!uploader.isUploading"
+            >
+              <span class="fa fa-ban"></span>
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-s"
+              (click)="uploader.clearQueue()"
+              [disabled]="!uploader.queue.length"
+            >
+              <span class="fa fa-trash"></span> Remover
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

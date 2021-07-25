@@ -1,0 +1,63 @@
+<div class="bg-light px-4 py-4 text-uppercase font-weight-bold align-middle">
+  Add more items
+</div>
+
+<div>
+  <div class="form-group row">
+    <label for="teste" class="mt-2"><strong>Search</strong></label>
+    <input
+      [(ngModel)]="selectedValue"
+      [typeahead]="products"
+      typeaheadOptionField="productCode"
+      [typeaheadMinLength]="0"
+      [typeaheadOptionsLimit]="7"
+      [typeaheadScrollable]="true"
+      (typeaheadOnSelect)="onSelect($event)"
+      class="form-control"
+    />
+  </div>
+</div>
+
+<div *ngIf="product">
+  <div
+    class="bg-light px-4 py-4 text-uppercase font-weight-bold mt-5 align-middle"
+    style="border-radius: 15px"
+  >
+    Choose the quantity
+  </div>
+
+  <div>
+    <div>
+      <img
+        name="Image"
+        *ngIf="product.image"
+        src="{{ product.image }}"
+        alt="{{ product.description }}"
+        class="img-fluid mt-2"
+        style="max-height: 250px"
+      />
+
+      <img
+        name="Image"
+        *ngIf="product.image == ''"
+        src=" {{ defaultImage }}"
+        alt="{{ product.description }}"
+        class="img-fluid mt-2"
+        style="max-height: 250px"
+      />
+    </div>
+
+    <div class="mt-1">
+      <label>{{ product.description }}</label>
+    </div>
+
+    <label for="teste" class="mt-2"><strong>Quantity</strong></label>
+    <input type="number" class="form-control" #quantity />
+    <button
+      class="btn btn-primary mt-2"
+      (click)="addItemToOrder(quantity.value, product)"
+    >
+      Add
+    </button>
+  </div>
+</div>

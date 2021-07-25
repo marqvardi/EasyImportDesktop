@@ -1,0 +1,39 @@
+<div class="container col-md-12">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="text-center row">
+      <div class="mr-5 col-md-9">
+        <img
+          src="../../../../assets/img/white-spade-sm.png"
+          style="max-height: 100px"
+          alt=""
+        />
+        <h1 class="h3 mb-3 font-weight-normal mt-3" style="color: white">
+          EASY COMPANY
+        </h1>
+      </div>
+
+      <div class="col-md-9">
+        <!-- <h3 class="h3 mb-3 font-weight-normal" style="color: white">
+                Login
+              </h3> -->
+        <app-text-input
+          formControlName="email"
+          [label]="'Email address'"
+        ></app-text-input>
+        <app-text-input
+          formControlName="password"
+          [label]="'Password'"
+          [type]="'password'"
+        ></app-text-input>
+
+        <button
+          [disabled]="loginForm.invalid"
+          class="btn btn-lg btn-primary btn-block"
+          type="submit"
+        >
+          Sign in
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

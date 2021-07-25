@@ -1,0 +1,11 @@
+obj/release/netcoreapp3.1/PubTmp/Out/appsettings.Development.json
+obj/release/netcoreapp3.1/PubTmp/Out/appsettings.json
+bin/release/netcoreapp3.1/publish/appsettings.Development.json
+bin/Debug/netcoreapp3.1/EasyImport.WebApi.runtimeconfig.json
+bin/release/netcoreapp3.1/appsettings.Development.json
+bin/Debug/netcoreapp3.1/appsettings.json
+bin/release/netcoreapp3.1/publish/appsettings.json
+bin/release/netcoreapp3.1/appsettings.json
+Data/UserSeedData.json
+bin/Debug/netcoreapp3.1/Data/UserSeedData.json
+ 

@@ -1,0 +1,212 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-5">
+      <div class="d-flex justify-content-end col-12">
+        <button
+          class="btn btn-primary float-right"
+          tooltip="Create a new category"
+          (click)="create(template)"
+        >
+          <i class="fa fa-plus-circle">&nbsp;</i>
+          New category
+        </button>
+      </div>
+
+      <div class="col-12 mt-3">
+        <div class="form-inline">
+          <select
+            class="col-md-3 form-control"
+            (change)="onSortSelected($event.target.value)"
+          >
+            <option *ngFor="let sort of sortOptions" [value]="sort.value">
+              {{ sort.name }}
+            </option>
+          </select>
+
+          <input
+            (keyup.enter)="onSearch()"
+            #search
+            class="form-control mr-2 ml-auto col-md-3 my-3"
+            placeholder="Search"
+            type="text"
+          />
+          <button class="btn btn-outline-primary my-2" (click)="onSearch()">
+            Search
+          </button>
+          <button class="btn btn-outline-success ml-2 my-2" (click)="onReset()">
+            Reset
+          </button>
+        </div>
+
+        <div class="d-flex justify-content-end my-3">
+          <app-paging-header
+            [totalCount]="totalCount"
+            [pageSize]="this.categoryParams.pageSize"
+            [pageNumber]="this.categoryParams.pageIndex"
+          ></app-paging-header>
+        </div>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <!-- <th>
+                Id
+              </th> -->
+              <th>Category</th>
+              <th colspan="2">Options</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let category of categories">
+            <tr>
+              <!-- <td>
+                {{ category.id }}
+              </td> -->
+              <td>
+                {{ category.name }}
+              </td>
+              <td>
+                <div class="btn-group">
+                  <button
+                    class="btn btn-sm btn-info mr-2"
+                    tooltip="Edit"
+                    (click)="edit(category, template)"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+
+                  <button
+                    class="btn btn-sm btn-danger"
+                    tooltip="Delete"
+                    (click)="delete(category, confirm)"
+                  >
+                    <i class="fa fa-eraser"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+          <app-pager
+            [totalCount]="this.totalCount"
+            [pageSize]="this.categoryParams.pageSize"
+            (pageChanged)="onPageChange($event)"
+          ></app-pager>
+
+          <!-- <pagination [boundaryLinks]="true" [totalItems]="this.totalCount" (pageChanged)="onPageChange($event)"
+                [itemsPerPage]="this.categoryParams.pageSize"
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"> 
+          </pagination> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" *ngIf="this.modoSalvar == 'post'">
+      New category
+    </h4>
+    <h4 class="modal-title pull-left" *ngIf="this.modoSalvar == 'put'">
+      Edit category
+    </h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-aqua">
+    <div class="container">
+      <form [formGroup]="registerForm">
+        <input
+          (keyup.enter)="save(template)"
+          type="text"
+          class="form-control"
+          style="color: black"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('name').dirty && registerForm.get('name').errors
+          }"
+          formControlName="name"
+          placeholder="Category..."
+        />
+        <div
+          *ngIf="registerForm.get('name').hasError('required')"
+          class="invalid-feedback"
+        >
+          Enter a category
+        </div>
+        <div
+          *ngIf="registerForm.get('name').hasError('minlength')"
+          class="invalid-feedback"
+        >
+          Minimum of 4 characters
+        </div>
+        <div
+          *ngIf="registerForm.get('name').hasError('exists')"
+          class="invalid-feedback"
+        >
+          Categorys is already taken
+        </div>
+      </form>
+      <button
+        class="btn btn-primary mt-3 float-right"
+        [disabled]="!registerForm.valid || !registerForm.dirty"
+        type="submit"
+        (keyup.enter)="save(template)"
+        (click)="save(template)"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<div
+  bsModal
+  #confirm="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-sizes-name1"
+>
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Delete category</h4>
+        <button
+          type="button"
+          class="close pull-right"
+          (click)="confirm.hide()"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ bodyDeleteCategory }}</p>
+      </div>
+      <div class="modal-footer btn-group d-flex">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="confirm.hide()"
+        >
+          CANCEL
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="confirmDelete(confirm)"
+        >
+          DELETE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

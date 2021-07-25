@@ -1,0 +1,61 @@
+select {
+  /* background-color: #1e1e2f; */
+  font-size: large;
+}
+
+select > option {
+  /* background-color: #1e1e2f; */
+  font-size: large;
+}
+
+.redPill {
+  background-color: lightcoral;
+  border: none;
+  color: black;
+  min-width: 95px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.amberPill {
+  background-color: orange;
+  min-width: 95px;
+  border: none;
+  color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.greenPill {
+  background-color: lightgreen;
+  min-width: 95px;
+  border: none;
+  color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}
+
+.greyPill {
+  background-color: lightgrey;
+  min-width: 95px;
+  border: none;
+  color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 12px 12px 12px 12px;
+  border-radius: 16px;
+}

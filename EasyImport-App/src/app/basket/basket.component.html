@@ -1,0 +1,334 @@
+<div class="content">
+  <div *ngIf="(basket$ | async) === null">
+    <div style="font-size: 15rem; text-align: center; color: green">
+      <i class="fa fa-cart-arrow-down fa-10x"></i>
+      <p style="font-size: 80px">Cart is empty</p>
+    </div>
+  </div>
+
+  <div *ngIf="basket$ | async as basket">
+    <div class="pb-5">
+      <!-- <div class="container"> -->
+      <div class="row">
+        <div class="col-12 py-5 mb-1">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Product</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Descricao</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Price</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Quantity</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Total</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Taxes</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Per carton</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase"># of carton</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">CBM</div>
+                  </th>
+
+                  <th class="border-0 bg-light" scope="col">
+                    <div class="p-2 px-3 text-uppercase">Remove</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of basket.items">
+                  <th scope="row">
+                    <div class="p-2 hovering">
+                      <a
+                        [routerLink]="['/product', item.productId, 'edit']"
+                        target="_blank"
+                      >
+                        <img
+                          *ngIf="item.pictureUrl"
+                          src="{{ item.pictureUrl }}"
+                          alt=""
+                          style="max-height: 100px"
+                        />
+
+                        <img
+                          *ngIf="item.pictureUrl == ''"
+                          src=" {{ defaultImage }}"
+                          style="max-height: 100px"
+                          alt=""
+                        />
+
+                        <div class="ml-3 d-inline-block align-middle">
+                          <h5 class="mb-0">
+                            <a
+                              routerLink="'/product/{{ item.productId }}'"
+                              class="text-dark"
+                              >Code: {{ item.productCode }}
+                            </a>
+                          </h5>
+                          <span
+                            class="
+                              text-muted
+                              font-weight-normal font-italic
+                              d-block
+                            "
+                          >
+                            Category: {{ item.category }}</span
+                          >
+                          <span
+                            class="
+                              text-muted
+                              font-weight-normal font-italic
+                              d-block
+                            "
+                          >
+                            Supplier: {{ item.supplier }}</span
+                          >
+                        </div>
+                      </a>
+                    </div>
+                  </th>
+
+                  <td class="align-middle" style="max-width: 300px">
+                    {{ item.description }}
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.price | currency: "USD":true:"1.2-4" }}
+                    </strong>
+                  </td>
+                  <!-- <td class="align-middle">
+                      <strong> {{ item.quantity }}</strong>
+                    </td> -->
+                  <td>
+                    <div class="form-inline align-middle">
+                      <input
+                        type="number"
+                        min="1"
+                        class="form-control col-5 mx-1"
+                        value="{{ item.quantity }}"
+                        aria-describedby="button-addon2"
+                        #quantity
+                        name="quantity"
+                        style="width: 100px"
+                      />
+                      <button
+                        style="width: 100px"
+                        class="btn btn-sm btn-primary"
+                        type="button"
+                        id="button-addon2"
+                        (click)="changeQuantity(item, quantity.value)"
+                      >
+                        Modify
+                      </button>
+                    </div>
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.price * item.quantity | currency }}</strong
+                    >
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{
+                        calculateTotalTaxesForSingleItemBasket(item) | currency
+                      }}</strong
+                    >
+                  </td>
+
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.qtyPerCarton }}
+                    </strong>
+                  </td>
+                  <td class="align-middle">
+                    <strong>
+                      {{ item.quantity / item.qtyPerCarton | number: "1.2-2" }}
+                    </strong>
+                  </td>
+                  <td class="align-middle">
+                    <strong>
+                      {{
+                        (item.cartonDeepness *
+                          item.cartonHeight *
+                          item.cartonWidth *
+                          (item.quantity / item.qtyPerCarton)) /
+                          1000000 | number: "1.2-2"
+                      }}
+                    </strong>
+                  </td>
+                  <td class="align-middle text-center">
+                    <a class="text-danger btn btn-sm" (click)="remove(item)">
+                      <i class="fa fa-trash" style="font-size: 2em"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+            Order details
+          </div>
+          <form [formGroup]="orderForm" (ngSubmit)="save()">
+            <div class="form-group py-2">
+              <label for="invoiceNumber">Invoice</label>
+              <input
+                id="invoiceNumber"
+                type="text"
+                formControlName="invoiceNumber"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="referenceNumber">Reference</label>
+              <input
+                id="referenceNumber"
+                type="text"
+                formControlName="referenceNumber"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('referenceNumber')?.errors &&
+                    orderForm.get('referenceNumber')?.touched
+                }"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('referenceNumber')?.hasError('required') &&
+                  orderForm.get('referenceNumber')?.touched
+                "
+              >
+                Enter a reference
+              </div>
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('referenceNumber')?.hasError('minlength') &&
+                  orderForm.get('referenceNumber')?.touched
+                "
+              >
+                Minimum of 1 character
+              </div>
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('referenceNumber')?.hasError('maxlength') &&
+                  orderForm.get('referenceNumber')?.touched
+                "
+              >
+                Maximum of 6 characters
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="supplier">Fornecedor</label>
+              <select
+                formControlName="supplierId"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('supplierId')?.errors &&
+                    orderForm.get('supplierId')?.touched
+                }"
+              >
+                <option [ngValue]="null">Escolha fornecedor</option>
+                <option
+                  *ngFor="let supplier of supplierList"
+                  [ngValue]="supplier.id"
+                >
+                  {{ supplier.companyName | titlecase }}
+                </option>
+              </select>
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('supplierId')?.hasError('required') &&
+                  orderForm.get('supplierId')?.touched
+                "
+              >
+                Supplier is mandatory
+              </div>
+            </div>
+
+            <div class="form-group py-3">
+              <label for="deliveryDate">ETA date</label>
+              <input
+                type="text"
+                placeholder="select a date"
+                class="form-control"
+                bsDatepicker
+                [bsConfig]="bsConfig"
+                formControlName="deliveryDate"
+                [ngClass]="{
+                  'is-invalid':
+                    orderForm.get('deliveryDate')?.errors &&
+                    orderForm.get('deliveryDate')?.touched
+                }"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="
+                  orderForm.get('deliveryDate')?.hasError('required') &&
+                  orderForm.get('deliveryDate')?.touched
+                "
+              >
+                Enter a date
+              </div>
+            </div>
+
+            <!-- <a routerLink="/checkout" class="btn btn-primary py-2 btn-bock" [disabled]="!orderForm.valid">
+                Complete order
+              </a> -->
+
+            <button
+              class="btn btn-primary btn-block py-3"
+              type="submit"
+              [disabled]="!orderForm.valid"
+            >
+              Submit order
+            </button>
+          </form>
+        </div>
+
+        <div class="col-6">
+          <app-order-total></app-order-total>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

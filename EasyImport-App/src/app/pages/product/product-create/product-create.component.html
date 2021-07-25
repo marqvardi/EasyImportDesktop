@@ -1,0 +1,333 @@
+<div class="col-md-12">
+  <form [formGroup]="registerForm" (ngSubmit)="save()">
+    <hr />
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="productCode">Item code</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="productCode"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('productCode')?.errors &&
+              registerForm.get('productCode')?.touched
+          }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('productCode')?.hasError('required') &&
+            registerForm.get('productCode')?.touched
+          "
+        >
+          Please enter an item code
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="registerForm.get('productCode').hasError('exists')"
+        >
+          Item code is already taken
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('productCode')?.hasError('minlength') &&
+            registerForm.get('productCode')?.touched
+          "
+        >
+          Minimum of 4 characters
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('productCode')?.hasError('maxlength') &&
+            registerForm.get('productCode')?.touched
+          "
+        >
+          Maximum of 50 characters
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          thousandSeparator=","
+          formControlName="price"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('price')?.errors &&
+              registerForm.get('price')?.touched
+          }"
+        />
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('price')?.hasError('min') &&
+            registerForm.get('price')?.touched
+          "
+        >
+          Price can not be negative
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('price')?.hasError('max') &&
+            registerForm.get('price')?.touched
+          "
+        >
+          Maximum value of 50.000
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-8">
+        <label for="description">Description</label>
+        <textarea
+          type="text"
+          class="form-control col-md-2"
+          formControlName="description"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('description')?.errors &&
+              registerForm.get('description')?.touched
+          }"
+        ></textarea>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('description')?.hasError('required') &&
+            registerForm.get('description')?.touched
+          "
+        >
+          Please enter a description
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('description')?.hasError('minlength') &&
+            registerForm.get('description')?.touched
+          "
+        >
+          Minimum of 4 characters
+        </div>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('description')?.hasError('maxlength') &&
+            registerForm.get('description')?.touched
+          "
+        >
+          Maximum of 150 characters
+        </div>
+      </div>
+
+      <!-- <div class="form-group col-md-4">
+        <input type="file" (change)="uploadPhoto()" #fileInput />
+        Upload
+      </div> -->
+    </div>
+
+    <hr />
+
+    <h2 class="mt-2 text-center text-primary">Please select</h2>
+
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="ncm">NCM</label>
+        <select
+          formControlName="ncmId"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('ncmId')?.errors &&
+              registerForm.get('ncmId')?.touched
+          }"
+        >
+          <option [ngValue]="null">Choose a NCM</option>
+          <option *ngFor="let ncm of ncmList" [ngValue]="ncm.id">
+            {{ ncm.ncmCode | mask: "0000.00.00" }}
+          </option>
+        </select>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('ncmId')?.hasError('required') &&
+            registerForm.get('ncmId')?.touched
+          "
+        >
+          NCM is mandatory
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="supplier">Supplier</label>
+        <select
+          formControlName="supplierId"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('supplierId')?.errors &&
+              registerForm.get('supplierId')?.touched
+          }"
+        >
+          <option [ngValue]="null">Choose a supplier</option>
+          <option *ngFor="let supplier of supplierList" [ngValue]="supplier.id">
+            {{ supplier.companyName | titlecase }}
+          </option>
+        </select>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('supplierId')?.hasError('required') &&
+            registerForm.get('supplierId')?.touched
+          "
+        >
+          Supplier is mandatory
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="category">Category</label>
+        <select
+          formControlName="categoryId"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('categoryId')?.errors &&
+              registerForm.get('categoryId')?.touched
+          }"
+        >
+          <option [ngValue]="null">Choose a category</option>
+          <option
+            *ngFor="let category of categoriesList"
+            [ngValue]="category.id"
+          >
+            {{ category.name | titlecase }}
+          </option>
+        </select>
+
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            registerForm.get('categoryId')?.hasError('required') &&
+            registerForm.get('categoryId')?.touched
+          "
+        >
+          Category is mandatory
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <h2 class="text-center text-primary">Carton information</h2>
+
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="cartonWidth">Width</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="cartonWidth"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('cartonWidth')?.errors &&
+              registerForm.get('cartonWidth')?.touched
+          }"
+        />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="cartonDeepness">Deepness</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="cartonDeepness"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('cartonDeepness')?.errors &&
+              registerForm.get('cartonDeepness')?.touched
+          }"
+        />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="cartonHeight">Height</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="cartonHeight"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('cartonHeight')?.errors &&
+              registerForm.get('cartonHeight')?.touched
+          }"
+        />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="qtyPerCarton">Quantity per carton</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="qtyPerCarton"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('qtyPerCarton')?.errors &&
+              registerForm.get('qtyPerCarton')?.touched
+          }"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="grossKgs">Gross weight</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="grossKgs"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('grossKgs')?.errors &&
+              registerForm.get('grossKgs')?.touched
+          }"
+        />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="netKgs">Net weight</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="netKgs"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('netKgs')?.errors &&
+              registerForm.get('netKgs')?.touched
+          }"
+        />
+      </div>
+    </div>
+
+    <button
+      class="btn btn-primary float-right"
+      type="submit"
+      [disabled]="!registerForm.valid"
+    >
+      Create
+    </button>
+  </form>
+</div>
