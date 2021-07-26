@@ -4,6 +4,8 @@ That's my first and only project using Angular
 
 ```diff
 
+- The site is for desktop use only.
+
 App implemented for a company in Brazil that works with imported products from China. 
 
 It is highly customised for the company.
